@@ -29,6 +29,10 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 
+gem 'protected_attributes'
+
+gem 'json'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -39,8 +43,10 @@ group :development, :test do
     gem 'dotenv-rails'
     gem 'rspec-rails'
     gem 'factory_girl'
+    gem 'pry'
   end
 
+gem 'geocoder'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

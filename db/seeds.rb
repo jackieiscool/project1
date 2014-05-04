@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+countries = Country.create ([
+  {title: 'Australia', visited: 'true'},
+  {title: 'China', visited: 'true'},
+  {title: 'USA', visited: 'true'},
+  {title: 'France', visited: 'false'}
+])
+
+shane = User.create(:name => 'Shane',  email: "shanemiller500@gmail.com", password: "password", password_confirmation: "password")

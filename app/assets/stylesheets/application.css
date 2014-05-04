@@ -8,6 +8,75 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *
  *= require_self
  *= require_tree .
+
+*=require_bootstrap.min
+
  */
+
+li, a {
+  float: right;
+}
+.box {
+background-color: rgba(0, 0, 0, 0.5 );
+  width: 600px;
+  padding-top: 24px;
+  min-height: 150px;
+  margin-left: 370px;
+  text-align: center;
+  border-radius: 12px 12px 12px 12px;
+  /*box-shadow: 3px 10px 10px 10px rgba(255, 246, 21, 0.63);*/
+  margin-bottom: 150px;
+  padding-bottom: 50px;
+  margin-top: 117px;
+
+}
+
+.box1 {
+background-color: rgba(0, 0, 0, 0.5 );
+  width: 495px;
+  padding-top: 24px;
+  min-height: 150px;
+  margin-left: 40px;
+  text-align: center;
+  border-radius: 12px 12px 12px 12px;
+  /*box-shadow: 3px 10px 10px 10px rgba(255, 246, 21, 0.63);*/
+  margin-bottom: 150px;
+  padding-bottom: 50px;
+  margin-top: 117px;
+
+}
+.box2 {
+background-color: rgba(0, 0, 0, 0.5 );
+width: 495px;
+padding-top: 10px;
+min-height: 150px;
+margin-left: 40px;
+text-align: center;
+border-radius: 12px 12px 12px 12px;
+/* box-shadow: 3px 10px 10px 10px rgba(255, 246, 21, 0.63); */
+margin-bottom: 150px;
+padding-bottom: 50px;
+margin-top: -119px;
+
+
+
+}
+
+ html, body, #map-canvas {
+       height: 100%;
+
+
+
+ }
+#map-canvas {
+  width: 50%;
+margin: 0px;
+float: right;
+margin-top: -2px;
+
+      }
+
+

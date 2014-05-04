@@ -5,10 +5,39 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+   
+
 </head>
 <body>
+<!-- for the nav bar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+ 
+     <div class="container">
+        
+       <ul class="nav navbar-nav">
+         <% if user_signed_in? %>
+        <li><a class="active"> Signed in as <%= current_user.email %>. Not you?</a></li>
+
+         <li><a class="active"> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a></li>s
+
+         <% else %>
+            
+       <li ><%= link_to "Sign up", new_user_registration_path %></li>
+
+       <li ><%= link_to "sign in", new_user_session_path %> </li>
+         <% end %>
+        </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+  
+
 
 <%= yield %>
-
 </body>
+<footer>
+  
+</footer>
+
 </html>
