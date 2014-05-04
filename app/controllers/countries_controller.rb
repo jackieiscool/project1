@@ -5,7 +5,7 @@ def new
 end
 
 def create
-  new_country = params.require(:country).permit(:title, :visited)
+  new_country = params.require(:country).permit(:title, :visited, :latitude, :longitude)
   country = Country.create(new_country)
   redirect_to root_path
 end
