@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     if user_signed_in?
-      render "home"
+      redirect_to home_path
     else
       render "index"
     end
@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   def create
   @user = User.create(params[:user])
   end
-
 
   private
     def user_params

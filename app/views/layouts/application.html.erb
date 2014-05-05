@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Project1</title>
+
+  <%= include_gon %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -18,9 +20,11 @@
         
        <ul class="nav navbar-nav">
          <% if user_signed_in? %>
+
+          <li><a class="active"> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a></li>
         <li><a class="active"> Signed in as <%= current_user.email %>. Not you?</a></li>
 
-         <li><a class="active"> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a></li>s
+
 
          <% else %>
             

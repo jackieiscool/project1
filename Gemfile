@@ -30,8 +30,6 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 
-gem 'protected_attributes'
-
 gem 'json'
 
 group :doc do
@@ -39,6 +37,8 @@ group :doc do
   gem 'sdoc', require: false
 
 end
+
+gem 'gon'
 
 group :development, :test do
     gem 'dotenv-rails'
