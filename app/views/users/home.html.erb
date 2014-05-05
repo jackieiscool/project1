@@ -3,15 +3,17 @@
  <div id="map-canvas"></div>
 
     <div class="box1">
-
+      
     <%= form_for :country, method: :post, url: countries_path do |f| %>
     <%= f.text_field :title, placeholder: "E.G. Santorini greece", :class => "form-control" %>
     <br>
     <%= f.submit "Create", :class =>"btn btn-lg btn-warning" %>
     <% end %>
     </div>
-    <div class="box2">
-      <% form_for :user, :attach_file_name => { :multipart => true } do |f| %>
+     
+     <div class="box1">
+     <h3>Upload a photo</h3>
+        <% form_for :user, :attach_file_name => { :multipart => true } do |f| %>
       <p>
         <b> attachment </b><br/>
          <%= f.file_field :attach %>
@@ -22,4 +24,14 @@
       <%= f.file_field :pic %>
    </p>
     <% end %>
+     </div>     
+  
+
+    <div class="box2">
+     <h3>Wish list</h3>
+     
+    </div>
+
+    <div class="box-list2" >
+      <h3>Been there</h3>
     </div>

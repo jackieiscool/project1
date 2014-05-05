@@ -41,31 +41,29 @@ h1 {
 }
 
 .box1 {
-  background-color: rgba(92, 98, 165, 0.5);
+background-color: rgba(92, 98, 165, 0.5);
 width: 574px;
-padding-top: 24px;
+padding-top: 45px;
 min-height: 150px;
 margin-left: 40px;
 text-align: center;
 border-radius: 12px 12px 12px 12px;
 /* box-shadow: 3px 10px 10px 10px rgba(255, 246, 21, 0.63); */
-margin-bottom: 138px;
-padding-bottom: 22px;
-margin-top: 11px;
-
+margin-bottom: 8px;
+margin-top: 13px;
 }
 .box2 {
   background-color: rgba(0, 0, 0, 0.5 );
-  width: 495px;
+  max-width: 278px;
   padding-top: 10px;
-  min-height: 150px;
+  min-height: 190px;
   margin-left: 40px;
   text-align: center;
   border-radius: 12px 12px 12px 12px;
   /* box-shadow: 3px 10px 10px 10px rgba(255, 246, 21, 0.63); */
   margin-bottom: 150px;
   padding-bottom: 50px;
-  margin-top: -119px;
+  margin-top: 24px;
 }
 
  html, body, #map-canvas {
@@ -90,14 +88,26 @@ border-radius: 12px 12px 12px 12px;
 /* box-shadow: 3px 10px 10px 10px rgba(255, 246, 21, 0.63); */
 margin-bottom: 138px;
 padding-bottom: 22px;
-margin-top: -308px;
+margin-top: -176px;
 float: right;
 }
 
 body {
   background: url("http://www.hddesktopbackgrounds.us/backgrounds-images/1920x1080/b48ti-wallpapers-091421358-1920x1080.jpg");
-background-repeat: no-repeat;
+background-repeat: repeat;
 background-size: cover;
+}
+.box-list2 {
+background-color: rgba(92, 98, 165, 0.5);
+width: 269px;
+min-height: 190px;
+margin-left: 344px;
+text-align: center;
+border-radius: 12px 12px 12px 12px;
+/* box-shadow: 3px 10px 10px 10px rgba(255, 246, 21, 0.63); */
+margin-bottom: 156px;
+padding-bottom: 52px;
+margin-top: -342px
 }
 
 
