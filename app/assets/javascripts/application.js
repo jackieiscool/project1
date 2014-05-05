@@ -32,7 +32,7 @@ var map;
 
 function initialize() {
   var mapOptions = {
-    zoom: 3,
+    zoom: 2,
     center: stockholm
   };
 

@@ -1,0 +1,25 @@
+ 
+<h1>WELCOME HOME</h1>
+ <div id="map-canvas"></div>
+
+    <div class="box1">
+
+    <%= form_for :country, method: :post, url: countries_path do |f| %>
+    <%= f.text_field :title, placeholder: "E.G. Santorini greece", :class => "form-control" %>
+    <br>
+    <%= f.submit "Create", :class =>"btn btn-lg btn-warning" %>
+    <% end %>
+    </div>
+    <div class="box2">
+      <% form_for :user, :attach_file_name => { :multipart => true } do |f| %>
+      <p>
+        <b> attachment </b><br/>
+         <%= f.file_field :attach %>
+      </p>
+   
+   <p>
+     <b> Picture </b><br/>
+      <%= f.file_field :pic %>
+   </p>
+    <% end %>
+    </div>

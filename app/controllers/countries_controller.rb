@@ -7,6 +7,7 @@ end
 def create
   new_country = params.require(:country).permit(:title, :visited, :latitude, :longitude)
   country = Country.create(new_country)
+  alert ("You have just saved")
   redirect_to root_path
 end
 

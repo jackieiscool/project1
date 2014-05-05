@@ -6,6 +6,7 @@ Project1::Application.routes.draw do
   resources :countries
   root "users#index"
 
+
 # resources :places
 # get "places#new"
  

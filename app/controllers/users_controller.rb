@@ -1,11 +1,20 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all 
+    if user_signed_in?
+      render "home"
+    else
+      render "index"
+    end
+   
   end
 
   def show
-    @user = User.find(param[:id])
+    @user = User.find(params[:id])
+  end
+
+  def create
+  @user = User.create(params[:user])
   end
 
 

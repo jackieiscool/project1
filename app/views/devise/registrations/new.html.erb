@@ -11,8 +11,9 @@
     <%= f.password_field :password, autocomplete: "off",:class => "form-control",placeholder: "Enter a password (min 6)" %></div>
 
   <div><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off",:class => "form-control", placeholder: "password confirmation" %></div>
-
+    <%= f.password_field :password_confirmation, autocomplete: "off",:class => "form-control", placeholder: "password confirmation" %>
+  </div>
+   <br>
   <div><%= f.submit "Sign up", :class => "btn btn-lg btn-warning" %></div>
 <% end %>
 
