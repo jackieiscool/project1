@@ -5,8 +5,7 @@ class UsersController < ApplicationController
       redirect_to home_path
     else
       render "index"
-    end
-   
+    end 
   end
 
   def show
@@ -14,19 +13,14 @@ class UsersController < ApplicationController
   end
 
   def create
-  @user = User.create(params[:user])
+    @user = User.create( user_params )
+  # @user = User.create(params[:user])
+   redirect_to home_path
   end
 
   private
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:email, :password, :password_confirmation, :pic)
     end
 
-
-  # get '/movie/:imdbID' do
-
-  # res=Typhoeus.get("www.omdbapi.com/", 
-  #   :params => { :i => params["imdbID"] })
-  # @pic = JSON.parse(res.body)
-  
 end

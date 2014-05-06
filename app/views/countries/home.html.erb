@@ -13,19 +13,18 @@
     </div>
      
   <div class="box1">
-    <h3>Upload a photo</h3>
-      <% form_for :user, :attach_file_name => { :multipart => true } do |f| %>
-      <p>
-       <button> attachment </button>
-       <br/>
-        <%= f.file_field :attach %>
-      </p>
-   
-   <p>
-     <b> Picture </b><br/>
-      <%= f.file_field :pic %>
-   </p>
-    <% end %>
+      <%= form_for @pin do |f| %>
+
+    
+    
+
+  <%= f.label :Upload_an_image %>
+  <%= f.file_field :image %>
+<br></br> 
+<%= f.submit "Add image", :class => "btn-info" %>
+
+<% end %>
+      
      </div>     
   
 
@@ -42,7 +41,7 @@
      <% else %>
      <ul>
      <% @countries.each do |c| %>
-    <li> <%= c.title %> <%= link_to "ELIMINATE", c, method: :delete,:class => "btn btn-lg btn-danger", data:{confirm: "Are you sure it's time to ELIMINATE.." }  %></li><br>
+    <li> <%= c.title %> <%= link_to "ELIMINATE", c, method: :delete,:class => "btn btn-sm btn-danger", data:{confirm: "Are you sure it's time to ELIMINATE.." }  %></li><br>
     <% end %>
 </ul>
 <% end %>
@@ -50,9 +49,6 @@
 
     <script>
       $(function(){
- 
-
-
 
 var stockholm = new google.maps.LatLng(67.742759, 123.398438);
 var parliament = new google.maps.LatLng(59.327383, 18.06747);
@@ -72,7 +68,7 @@ function initialize() {
 
   marker = new google.maps.Marker({
     map:map,
-    draggable:true,
+    draggable:false,
     animation: google.maps.Animation.DROP,
     position: japan
   });
@@ -88,7 +84,11 @@ function toggleBounce() {
   }
 }
 
+
+
 google.maps.event.addDomListener(window, 'load', initialize);
 });
    
     </script>
+
+

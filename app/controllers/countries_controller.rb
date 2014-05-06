@@ -1,28 +1,24 @@
 class CountriesController < ApplicationController
+  before_action :load_country, only:[:show, :edit, :destroy, :update]
 
-def new
-  @country = Country.new
-end
+  def new
+    @country = Country.new
+  end
 
-def create
-  new_country = params.require(:country).permit(:title, :latitude, :longitude)
+  def create
+    new_country = params.require(:country).permit(:title, :latitude, :longitude)
+    countries = Country.create(new_country)
+     @user = User.create( user_params )
+    redirect_to root_path
+  end
 
-  countries = Country.create(new_country)
+  def show
+  end
 
-  redirect_to root_path
+  def edit
+  end
 
-
-end
-
-def show
-  @country = Country.find(params [:all])
-end
-
-def edit
-  @countries = Country.find(params [:id])
-end
-
-def home
+  def home
     @pin = Country.last
     @countries = Country.all
    
@@ -30,12 +26,21 @@ def home
     gon.lon = @pin.longitude
   end
 
+  def update
+      @country.update_attributes country_params
+    reidirect_to root_path
+  end
+
   def destroy
-    @countries.destroy
+    @country.destroy 
     redirect_to root_path
   end
 
+private
+  def load_country
+    @country = Country.find(params[:id])
+    redirect_to root_path unless @country
+  end
 
- 
 end
 

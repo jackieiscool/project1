@@ -57,6 +57,7 @@ GEM
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
     geocoder (1.2.0)
+    gmaps4rails (2.1.2)
     gon (5.0.4)
       actionpack (>= 2.3.0)
       json
@@ -167,6 +168,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl
   geocoder
+  gmaps4rails
   gon
   jbuilder (~> 1.2)
   jquery-rails
