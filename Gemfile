@@ -53,6 +53,7 @@ gem 'geocoder'
 
 # for uploading images
 gem "paperclip", "~> 4.1"
+gem 'aws-sdk'
 
 group :production do
 gem 'rails_12factor'

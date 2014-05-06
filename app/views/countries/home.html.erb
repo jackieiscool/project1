@@ -3,31 +3,12 @@
    <div id="map-canvas"></div>
 
      <div class="box1">  
-      <%= form_for :country, method: :post, url: countries_path do |f| %>
-        <%= f.text_field :title, placeholder: "E.G. Santorini greece", :class => "form-control" %>
-         <%= f.text_field :longitude, placeholder: "Longitude", :class => "form-control" %>
-          <%= f.text_field :laitude, placeholder: "laitude", :class => "form-control" %>
-         <br>
-        <%= f.submit "Create", :class =>"btn btn-lg btn-warning" %>
-      <% end %>
+     <form action="/countries" method="post">
+        <input type="text" name="place" placeholder="Enter Location">
+        <input type="submit" value="Submit">
+    </form>
     </div>
-     
-  <div class="box1">
-      <%= form_for @pin do |f| %>
-
     
-    
-
-  <%= f.label :Upload_an_image %>
-  <%= f.file_field :image %>
-<br></br> 
-<%= f.submit "Add image", :class => "btn-info" %>
-
-<% end %>
-      
-     </div>     
-  
-
     <div class="box2">
      <h3>Wish list</h3>
      
@@ -47,31 +28,38 @@
 <% end %>
     </div>
 
-    <script>
-      $(function(){
+    <p><%=@results%></p>
 
-var stockholm = new google.maps.LatLng(67.742759, 123.398438);
-var parliament = new google.maps.LatLng(59.327383, 18.06747);
+    <script>
+
+      $(function(){
+        // console.log((gon.countries).length);
+
 
 var japan = new google.maps.LatLng(gon.lat, gon.lon);
 var marker;
 var map;
 
+
 function initialize() {
   var mapOptions = {
     zoom: 2,
-    center: stockholm
+    center: japan
   };
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
           mapOptions);
 
-  marker = new google.maps.Marker({
+for(var i = 0; i < (gon.countries).length; i++){
+  var loc = new google.maps.LatLng(gon.countries[i].latitude, gon.countries[i].longitude );
+  var marker = new google.maps.Marker({
     map:map,
     draggable:false,
     animation: google.maps.Animation.DROP,
-    position: japan
+    position: loc
   });
+}
+
   google.maps.event.addListener(marker, 'click', toggleBounce);
 }
 
@@ -90,5 +78,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 });
    
     </script>
+
 
 

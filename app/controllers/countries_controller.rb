@@ -1,14 +1,31 @@
 class CountriesController < ApplicationController
-  before_action :load_country, only:[:show, :edit, :destroy, :update]
+  before_action :load_country, only:[:show, :edit, :destroy]
+
+  def index
+    # get city
+    # use geocoder to find lat and long
+    # save lat and long to new Country object
+    
+    # @country = Country.new
+
+
+    # @country.latitude =
+    # @country.longitude =
+  end
 
   def new
     @country = Country.new
   end
 
   def create
-    new_country = params.require(:country).permit(:title, :latitude, :longitude)
-    countries = Country.create(new_country)
-     @user = User.create( user_params )
+    @country = Country.new
+    @results = Geocoder.search("#{params[:place]}")
+    lat = @results[0].data["geometry"]["location"]["lat"]
+    long = @results[0].data["geometry"]["location"]["lng"]
+    @country.latitude = lat
+    @country.longitude = long
+    @country.title = params[:place]
+    @country.save
     redirect_to root_path
   end
 
@@ -19,16 +36,17 @@ class CountriesController < ApplicationController
   end
 
   def home
+
+    # @results = Geocoder.search("McCarren Park, Brooklyn, NY")
+    # @results[0].data["geometry"]["location"]["lat"]
+
     @pin = Country.last
     @countries = Country.all
    
     gon.lat = @pin.latitude
     gon.lon = @pin.longitude
-  end
+    gon.countries = @countries
 
-  def update
-      @country.update_attributes country_params
-    reidirect_to root_path
   end
 
   def destroy
@@ -42,5 +60,6 @@ private
     redirect_to root_path unless @country
   end
 
+ 
 end
 
