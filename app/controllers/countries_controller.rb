@@ -26,13 +26,14 @@ class CountriesController < ApplicationController
     @country.longitude = long
     @country.title = params[:place]
     @country.save
-    redirect_to root_path
+    redirect_to edit_country_path(@country)
   end
 
   def show
   end
 
   def edit
+      @country = Country.find(params[:id])
   end
 
   def home
@@ -42,7 +43,7 @@ class CountriesController < ApplicationController
 
     @pin = Country.last
     @countries = Country.all
-    @country = Country.find(61)
+    @country = Country.find(76)
     gon.lat = @pin.latitude
     gon.lon = @pin.longitude
     gon.countries = @countries
@@ -51,7 +52,6 @@ class CountriesController < ApplicationController
 
   def update
     @country = Country.find(params[:id])
-    binding.pry
     @country.update country_params
     redirect_to root_path
   end
@@ -68,7 +68,7 @@ private
   end
 
   def country_params
-    params.require(:country).permit(:image_file_name)
+    params.require(:country).permit(:image)
     
   end
 

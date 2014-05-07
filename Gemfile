@@ -52,7 +52,7 @@ group :development, :test do
 gem 'geocoder'
 
 # for uploading images
-gem "paperclip", "~> 4.1"
+gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
 
 group :production do
