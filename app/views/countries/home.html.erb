@@ -20,22 +20,70 @@
       <h3>Been there</h3>
       <% if @countries.blank? %>
         <p>No countries to display</p>
-
-     <% else %>
-     <ul>
-     <% @countries.each do |c| %>
-    <li> <%= c.title %> <%= link_to "ELIMINATE", c, method: :delete,:class => "btn btn-sm btn-danger", data:{confirm: "Are you sure it's time to ELIMINATE.." }  %></li><br>
-    <% end %>
-</ul>
-<% end %>
-    </div>
-
+      <% else %>
+      <ul>
+       <% @countries.each do |c| %>
+       <li> <%= c.title %> <%= link_to "ELIMINATE", c, method: :delete,:class => "btn btn-sm btn-danger", data:{confirm: "Are you sure it's time to ELIMINATE.." }  %></li><br>
+      <% end %>
+      </ul>
+      <% end %>
+     </div>
     <p><%=@results%></p>
+    <!--  Image slider  -->
+  <div class="container">
+   <div class="row">
+    <div class="uploaded-image">
+     <div class="col-lg-12 text-center">
+      <div id="carousel-example-generic" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators hidden-xs">
+         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+       <div class="item active">
+        <img class="img-responsive img-full" src="http://media.dcentertainment.com/sites/default/files/GalleryBatman75_1900x900_BM1_53333ef4f048e4.80983462.jpg" alt="">
+       </div>
+       <!-- image -->
+      <div class="item">
+       <img class="img-responsive img-full" src="http://gamesdbase.com/Media/SYSTEM/Sega_Nomad/Title/big/Captain_Planet_and_the_Planeteers_-_1992_-_Sega.jpg" alt="">
+      </div>
+        <!-- image -->
+      <div class="item">
+       <img class="img-responsive img-full" src="http://fc00.deviantart.net/fs71/f/2012/022/1/7/the_avengers_by_tyrannus-d4n93q4.jpg" alt="">
+      </div>
+     </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+     <span class="icon-prev"></span>
+    </a>
+
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+     <span class="icon-next"></span>
+    </a>
+   </div>            
+   <!--   <hr class="tagline-divider"> -->
+  </div>
+ </div> 
+</div>
+<!-- for the image slider -->
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/bootstrap.js"></script>
+
 
     <script>
 
-      $(function(){
-      
+    // Activates the Carousel
+    $('.carousel').carousel({
+        interval: 4000
+    })
+    </script>
+
+    <script>
+      $(function(){ 
         var japan = new google.maps.LatLng(gon.lat, gon.lon);
         var marker;
         var map;
@@ -48,11 +96,9 @@
           map = new google.maps.Map(document.getElementById('map-canvas'),
           mapOptions);
 
-          
+ 
           for(var i = 0; i < (gon.countries).length; i++){
          var loc = new google.maps.LatLng(gon.countries[i].latitude, gon.countries[i] .longitude );
-
-
 
          var marker = new google.maps.Marker({
           map:map,
@@ -71,8 +117,8 @@
      google.maps.event.addListener(marker, 'click', toggleBounce);
       }
 
-google.maps.event.addDomListener(window, 'load', initialize);
-});
+     google.maps.event.addDomListener(window, 'load', initialize);
+      });
    
     </script>
 
