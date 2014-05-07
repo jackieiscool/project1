@@ -42,11 +42,18 @@ class CountriesController < ApplicationController
 
     @pin = Country.last
     @countries = Country.all
-   
+    @country = Country.find(61)
     gon.lat = @pin.latitude
     gon.lon = @pin.longitude
     gon.countries = @countries
 
+  end
+
+  def update
+    @country = Country.find(params[:id])
+    binding.pry
+    @country.update country_params
+    redirect_to root_path
   end
 
   def destroy
@@ -58,6 +65,11 @@ private
   def load_country
     @country = Country.find(params[:id])
     redirect_to root_path unless @country
+  end
+
+  def country_params
+    params.require(:country).permit(:image_file_name)
+    
   end
 
  

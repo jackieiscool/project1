@@ -4,16 +4,22 @@
 
      <div class="box1">  
      <form action="/countries" method="post">
-        <input type="text" name="place" placeholder="Enter Location">
-        <input type="submit" value="Submit">
+        <input type="text" name="place" placeholder="Enter Location"></input>
+        <input type="submit" value="Submit"></input>
         <br>
-        <input type="checkbox"> Been here?
+        <input type="checkbox"> Been here?</input>
     </form>
     </div>
 
     <div class="box2">
-     <h3>Wish list</h3>
-     
+     <h3>Image</h3>
+    <% if @country %>
+      <%= form_for(@country , :html => { :multipart => true}) do |f| %>
+        <%= f.label :image %><br> 
+        <%= f.file_field :image_file_name %>
+        <%= f.submit %>
+      <% end %>
+     <% end %>
     </div>
 
     <div class="box-list2" >
@@ -44,7 +50,7 @@
         <!-- Wrapper for slides -->
       <div class="carousel-inner">
        <div class="item active">
-        <img class="img-responsive img-full" src="http://media.dcentertainment.com/sites/default/files/GalleryBatman75_1900x900_BM1_53333ef4f048e4.80983462.jpg" alt="">
+        <img class="img-responsive img-full"<%= image_tag @country.image.url %> 
        </div>
        <!-- image -->
       <div class="item">
