@@ -16,6 +16,7 @@
 
  */
 
+
  li, a {
   float: right;
  }
@@ -23,6 +24,7 @@
 h1 {
  padding-top: 89px;
  text-align: center;
+ font-family: 'Indie Flower', cursive;
 }
 
 .box {
@@ -88,7 +90,7 @@ border-radius: 12px 12px 12px 12px;
 /* box-shadow: 3px 10px 10px 10px rgba(255, 246, 21, 0.63); */
 margin-bottom: 138px;
 padding-bottom: 22px;
-margin-top: -176px;
+margin-top: -305px;
 float: right;
 }
 
