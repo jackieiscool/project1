@@ -10,6 +10,7 @@ class CountriesController < ApplicationController
   end
 
   def create
+    
     @country = Country.new
     @results = Geocoder.search("#{params[:place]}")
     lat = @results[0].data["geometry"]["location"]["lat"]
@@ -17,6 +18,12 @@ class CountriesController < ApplicationController
     @country.latitude = lat
     @country.longitude = long
     @country.title = params[:place]
+    if params[:checkbox]== "on"
+      @country.visited = true
+    else
+       params[:checkbox]== "off"
+      @country.visited = false
+    end
     @country.save
     redirect_to edit_country_path(@country)
   end
@@ -29,13 +36,11 @@ class CountriesController < ApplicationController
   end
 
   def home
-
-    # @results = Geocoder.search("McCarren Park, Brooklyn, NY")
-    # @results[0].data["geometry"]["location"]["lat"]
-
     @pin = Country.last
     @countries = Country.all
-    @country = Country.find(76)
+    @bucket_country = Country.where(visited:false)
+    @been_country = Country.where(visited:true)
+    @country = Country.find_by(params[:id])
     gon.lat = @pin.latitude
     gon.lon = @pin.longitude
     gon

@@ -3,10 +3,12 @@ Project1::Application.routes.draw do
 
   devise_for :users
 
+get '/home', to: 'countries#home'
+
   resources :countries
   root "users#index"
 
-get '/home', to: 'countries#home'
+
 
 
 # resources :places
