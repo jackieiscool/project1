@@ -43,7 +43,6 @@ class CountriesController < ApplicationController
     @country = Country.find_by(params[:id])
     gon.lat = @pin.latitude
     gon.lon = @pin.longitude
-    gon
     gon.countries = @countries
 
   end

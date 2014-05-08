@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Country do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should add country' do
+    country = country.create("sydne22")
+    country.should_not be_valid
+   
+  end
+
+  
 end

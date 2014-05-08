@@ -146,6 +146,18 @@ margin-top: 33px;
 float:left;
 }
 
+/* #1- Large desktop */
+@media (min-width: 980px) { ... }
+
+/* #2- Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { ... }
+
+/* #3- Landscape phone to portrait tablet */
+@media (max-width: 767px) { ... }
+
+/* #4- Landscape phones and down */
+@media (max-width: 480px) { ... }
+
  /*making the boxes fade in*/
 @keyframes fadeIn {
   0% {opacity: 0;}
