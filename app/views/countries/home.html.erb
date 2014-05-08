@@ -1,20 +1,20 @@
  
   
-   <div id="map-canvas"></div>
+   <div id="map-canvas" class="animated @keyframes fadeIn "></div>
 
      <div id="box1" class="animated @keyframes fadeIn "> 
      <h2>Please pick a Place you want to go!</h2> 
      <form action="/countries" method="post">
-        <input class = "form-control" type="text" name="place" placeholder="Enter Location"></input>
+        <input class = "form-control" type="text" name="place" placeholder="Enter a Location"></input>
         <input class="btn btn-lg btn-success" type="submit" value="Submit"></input>
         <br>
-        <input type="checkbox"> Been here?</input>
+        <input type="checkbox" action="/countries" method="post"> Been here?</input>
     </form>
     </div>
 
     
 
-    <div class="box-list2">
+    <div id="box-list2" class="animated @keyframes fadeIn ">
       <h2>Been there</h2>
       <% if @countries.blank? %>
         <p>No countries to display</p>
@@ -27,7 +27,7 @@
       <% end %>
      </div>
     <p><%=@results%></p>
-    <div class="bucket-list">
+    <div id="bucket-list" class="animated @keyframes fadeIn " >
       <h2>Bucket list</h2>
     </div>
     <!--  Image slider  -->
@@ -45,7 +45,7 @@
         <!-- Wrapper for slides -->
       <div class="carousel-inner">
        <div class="item active">
-        <img class="img-responsive img-full"<%= image_tag @country.image.url(:square) %> 
+        <img class="img-responsive img-full"<%= image_tag @country.image.url(:thumb) %> 
        </div>
        <!-- image -->
       <div class="item">
@@ -116,7 +116,7 @@
          draggable:false,
          animation: google.maps.Animation.DROP,
          position: loc,
-         icon: 'http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-942222/shapecolor-no/shadow-0/border-no/symbolstyle-color/symbolshadowstyle-white/gradient-no/dragon.png'
+         icon: 'http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-265cb2/shapecolor-no/shadow-0/border-no/symbolstyle-color/symbolshadowstyle-white/gradient-no/expert.png'
         });
           
         listenForInfoWindow(gon.countries[i].title, marker);

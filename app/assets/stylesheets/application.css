@@ -44,27 +44,27 @@ h1 {
 }
 
 .box1 {
-background-color: rgba(92, 98, 165, 0.5);
-width: 574px;
-padding-top: 45px;
-min-height: 150px;
-margin-left: 40px;
-text-align: center;
-border-radius: 12px 12px 12px 12px;
- /*box-shadow: 3px 10px 10px 10px rgba(10, 10, 10, 0.63); */
-margin-bottom: 8px;
-margin-top: 13px;
+  background-color: rgba(92, 98, 165, 0.5);
+  width: 574px;
+  padding-top: 45px;
+  min-height: 150px;
+  margin-left: 40px;
+  text-align: center;
+  border-radius: 12px 12px 12px 12px;
+   /*box-shadow: 3px 10px 10px 10px rgba(10, 10, 10, 0.63); */
+  margin-bottom: 8px;
+  margin-top: 13px;
 }
 #box1 {
-background-color: rgba(92, 98, 165, 0.5);
-width: 574px;
-min-height: 150px;
-margin-left: 40px;
-text-align: center;
-border-radius: 12px 12px 12px 12px;
+ background-color: rgba(92, 98, 165, 0.5);
+ width: 574px;
+ min-height: 150px;
+ margin-left: 40px;
+ text-align: center;
+ border-radius: 12px 12px 12px 12px;
  box-shadow: 3px 10px 10px 10px rgba(10, 10, 10, 0.63);
-margin-bottom: 8px;
-margin-top: 77px;
+ margin-bottom: 8px;
+ margin-top: 77px;
 }
 
 .box2 {
@@ -124,7 +124,7 @@ body {
 background-repeat: repeat;
 background-size: cover;
 }
-.box-list2 {
+#box-list2 {
 background-color: rgba(113, 115, 141, 0.5);
 width: 276px;
 min-height: 147px;
@@ -135,7 +135,7 @@ box-shadow: 3px 10px 10px 10px rgba(10, 10, 10, 0.63);
 margin-top: 33px;
 float:left;
 }
-.bucket-list {
+#bucket-list {
 background-color: rgba(113, 115, 141, 0.5);
 width: 276px;
 min-height: 147px;
