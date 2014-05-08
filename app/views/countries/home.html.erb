@@ -1,11 +1,12 @@
- <h1>WELCOME HOME</h1>
+ 
   
    <div id="map-canvas"></div>
 
-     <div class="box1">  
+     <div id="box1" class="animated @keyframes fadeIn "> 
+     <h2>Please pick a Place you want to go!</h2> 
      <form action="/countries" method="post">
-        <input type="text" name="place" placeholder="Enter Location"></input>
-        <input type="submit" value="Submit"></input>
+        <input class = "form-control" type="text" name="place" placeholder="Enter Location"></input>
+        <input class="btn btn-lg btn-success" type="submit" value="Submit"></input>
         <br>
         <input type="checkbox"> Been here?</input>
     </form>
@@ -13,19 +14,22 @@
 
     
 
-    <div class="box-list2" >
-      <h3>Been there</h3>
+    <div class="box-list2">
+      <h2>Been there</h2>
       <% if @countries.blank? %>
         <p>No countries to display</p>
       <% else %>
-      <ul>
+     
        <% @countries.each do |c| %>
-       <li> <%= c.title %> <%= link_to "ELIMINATE", c, method: :delete,:class => "btn btn-sm btn-danger", data:{confirm: "Are you sure it's time to ELIMINATE.." }  %></li><br>
+       <p> <%= c.title %> <%= link_to "ELIMINATE", c, method: :delete,:class => "btn btn-sm btn-danger", data:{confirm: "Are you sure it's time to ELIMINATE.." }  %></p><br>
       <% end %>
-      </ul>
+      
       <% end %>
      </div>
     <p><%=@results%></p>
+    <div class="bucket-list">
+      <h2>Bucket list</h2>
+    </div>
     <!--  Image slider  -->
   <div class="container">
    <div class="row">
@@ -41,7 +45,7 @@
         <!-- Wrapper for slides -->
       <div class="carousel-inner">
        <div class="item active">
-        <img class="img-responsive img-full"<%= image_tag @country.image.url %> 
+        <img class="img-responsive img-full"<%= image_tag @country.image.url(:square) %> 
        </div>
        <!-- image -->
       <div class="item">
@@ -78,67 +82,49 @@
         interval: 2000
     })
     </script>
+ <script>
+  $(function(){ 
+    var japan = new google.maps.LatLng(gon.lat, gon.lon);
+    var infowindow;
+    var listenForInfoWindow = function(contentString, marker){
+      google.maps.event.addListener(marker, 'click', function() {
+         if(!!infowindow){
+                infowindow.close()
+          }
+          contentString= "<div><p>" + contentString +"</p></div>"
+          infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
 
-    <script>
-      $(function(){ 
-        var japan = new google.maps.LatLng(gon.lat, gon.lon);
-        var marker;
-        var map;
-        function initialize() {
-        var mapOptions = {
-         zoom: 2,
-         center: japan
-          };
-
-          map = new google.maps.Map(document.getElementById('map-canvas'),
-          mapOptions);
-
- 
-        for(var i = 0; i < (gon.countries).length; i++){
-          var loc = new google.maps.LatLng(gon.countries[i].latitude, gon.countries[i] .longitude );
-
-          var contentString = gon.countries[i].title;
-
-           // var contentString = '<div id="content">'+
-           // '<div id="siteNotice">'+
-           // '</div>'+
-           // '<h1 id="firstHeading" class="firstHeading">Name</ h1>'+
-           // '<div id="bodyContent">'`
-           // '</div>'+
-           // '</div>';
-
-          var infowindow = new google.maps.InfoWindow({
-             content: contentString
-              });
-
-          var marker = new google.maps.Marker({
-          map:map,
-          draggable:false,
-          animation: google.maps.Animation.DROP,
-          position: loc
-          });
-
-          google.maps.event.addListener(marker, 'click', function() {
-         infowindow.open(map,this);
-         });
-
-
-          
-            }
-
-            
-
-            // $('for').click(function(){
-
-         
-
-        
-   }
-
-     google.maps.event.addDomListener(window, 'load', initialize);
+        infowindow.open(map, this);
       });
-   
-    </script>
+    };
+    function initialize() {
+     var mapOptions = {
+      zoom: 2,
+      center: japan
+     };
+     map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+      
+      for(
+        var i = 0; i < gon.countries.length; i++){
+        var loc = new google.maps.LatLng(gon.countries[i].latitude, gon.countries[i] .longitude );
+
+        var marker = new google.maps.Marker({
+         map:map,
+         draggable:false,
+         animation: google.maps.Animation.DROP,
+         position: loc,
+         icon: 'http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-942222/shapecolor-no/shadow-0/border-no/symbolstyle-color/symbolshadowstyle-white/gradient-no/dragon.png'
+        });
+          
+        listenForInfoWindow(gon.countries[i].title, marker);
+         }
+        }
+       google.maps.event.addDomListener(window, 'load', initialize);
+   });
+</script>
 
 
 

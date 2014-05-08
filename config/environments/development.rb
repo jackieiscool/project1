@@ -26,4 +26,17 @@ Project1::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  #for devise
+  config.action_mailer.default_url_options = { host: 'localhost:3000' } 
+
+  #required for AWS, S3, heroku & paperclip implementation
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['AWS_BUCKET'],
+    :access_key_id => ENV['AWSAccessKeyId'],
+    :secret_access_key => ENV['AWSSecretKey']
+    }
+  }
 end

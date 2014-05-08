@@ -77,4 +77,16 @@ Project1::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.action_mailer.default_url_options = { host: 'http://shanes-page.herokuapp.com' } 
+
+  #required for AWS, S3, heroku & paperclip implementation
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['AWS_BUCKET'],
+    :access_key_id => ENV['AWSAccessKeyId'],
+    :secret_access_key => ENV['AWSSecretKey']
+    }
+  }
 end

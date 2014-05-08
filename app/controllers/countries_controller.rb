@@ -2,15 +2,7 @@ class CountriesController < ApplicationController
   before_action :load_country, only:[:show, :edit, :destroy]
 
   def index
-    # get city
-    # use geocoder to find lat and long
-    # save lat and long to new Country object
-    
-    # @country = Country.new
-
-
-    # @country.latitude =
-    # @country.longitude =
+   
   end
 
   def new
@@ -46,6 +38,7 @@ class CountriesController < ApplicationController
     @country = Country.find(76)
     gon.lat = @pin.latitude
     gon.lon = @pin.longitude
+    gon
     gon.countries = @countries
 
   end
