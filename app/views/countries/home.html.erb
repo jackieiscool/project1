@@ -1,64 +1,54 @@
- 
-<!--   Fot the google map -->
-   <div id="map-canvas" class="animated @keyframes fadeIn "></div>
+ <!--   Fot the google map -->
+  <div id="map-canvas" class="animated @keyframes fadeIn "></div>
 
-     <div id="box1" class="animated @keyframes fadeIn "> 
-     <h2>Please pick a Place you want to go!</h2> 
+  <!-- div box for form -->
+   <div id="box1" class="animated @keyframes fadeIn "> 
+    <h2>Please pick a Place you want to go!</h2> 
      <form action="/countries" method="post">
-        <input class = "form-control" type="text" name="place" placeholder="Enter a Location"></input><br>
-         <input type="checkbox" name="checkbox" action="/countries" method="post"> Been here?</input><br><br>
-        <input class="btn btn-lg btn-success" type="submit" value="Submit"></input><br>
-        <br>
-       
+     <input class = "form-control" type="text" name="place" placeholder="Enter a Location"></input><br>
+     <input type="checkbox" name="checkbox" action="/countries" method="post"> Been here?</input><br><br>
+     <input class="btn btn-lg btn-success" type="submit" value="Submit"></input><br>
+ <br>
     </form>
-    </div>
+  </div>
 
-    <div id="box-list2" class="animated @keyframes fadeIn ">
-      <h2>Bucket list</h2>
-      <% if @countries.blank? %>
-        <p>No countries to display</p>
-      <% else %>
-     
-       <% @bucket_country.each do |bc| %>
+<!-- bucket list div -->
+  <div id="box-list2" class="animated @keyframes fadeIn ">
+   <h2>Bucket list</h2>
+    <% if @countries.blank? %>
+       <p>No countries to display</p>
+    <% else %>
+    <% @bucket_country.each do |bc| %>
        <p> <%= bc.title %> <%= link_to "ELIMINATE", bc, method: :delete,:class => "btn btn-sm btn-danger hover", data:{confirm: "Are you sure it's time to ELIMINATE.." }  %></p><br>
-      <% end %>
-      
-    
-     </div>
-    <!-- <p><%=@results%></p> -->
-    <div id="bucket-list" class="animated @keyframes fadeIn " >
-      <h2>Been there</h2>
-      <% @been_country.each do |bt| %>
+   <% end %>
+  </div>
+
+ <!-- been there div --> 
+  <div id="bucket-list" class="animated @keyframes fadeIn " >
+   <h2>CHECK!</h2>
+    <% @been_country.each do |bt| %>
       <p> <%= bt.title %> <%= link_to "ELIMINATE", bt, method: :delete,:class => "btn btn-sm btn-danger hover", data:{confirm: "Are you sure it's time to ELIMINATE.." }  %></p><br>
-      <% end %>
-      
-      
-    </div>
-    <!--  Image slider  -->
+    <% end %>
+  </div>
+
+ <!--  Image slider  -->
   <div class="container">
    <div class="row">
-    <div class="uploaded-image">
+    <div id="uploaded-image" class="animated @keyframes fadeIn ">
      <div class="col-lg-12 text-center">
       <div id="carousel-example-generic" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators hidden-xs">
-         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-
+        
         <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-
-      <% @countries.each_with_index do |country, index| %>
-        <% if index == 0 %>
-        <div class="item active">
-        <% else %>
-        <div class="item">
-        <% end %> 
+       <div class="carousel-inner">
+        <% @countries.each_with_index do |country, index| %>
+         <% if index == 0 %>
+          <div class="item active">
+         <% else %>
+          <div class="item">
+         <% end %> 
         <img class="img-responsive img-full"<%= image_tag country.image.url(:medium) %> 
-        </div>
-       <% end %>
+         </div>
+        <% end %>
       </div>
      </div>
 
@@ -66,28 +56,24 @@
     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
      <span class="icon-prev"></span>
     </a>
-
     <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
      <span class="icon-next"></span>
     </a>
    </div>            
-   <!--   <hr class="tagline-divider"> -->
   </div>
  </div> 
 </div>
   <% end %>
+
 <!-- for the image slider -->
 <script src="js/jquery-1.10.2.js"></script>
-
-
-
-    <script>
-
-    // Activates the Carousel
-    $('.carousel').carousel({
-        interval: 2000 
-    })
-    </script>
+<script>
+ // Activates the Carousel
+  $('.carousel').carousel({
+        interval: 4000 
+   }) 
+</script>
+<!-- javascript for everything -->
  <script>
   $(function(){ 
     var japan = new google.maps.LatLng(gon.lat, gon.lon);
@@ -132,7 +118,6 @@
          icon: bucket_icon
 
         });
-
           
         listenForInfoWindow(gon.countries[i].title, marker);
          }

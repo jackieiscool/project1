@@ -1,23 +1,24 @@
 class CountriesController < ApplicationController
   before_action :load_country, only:[:show, :edit, :destroy]
 
-  def index
-   
+  def index 
   end
 
   def new
     @country = Country.new
   end
 
+# creates the place(country) location
   def create
-    
-    @country = Country.new
-    @results = Geocoder.search("#{params[:place]}")
-    lat = @results[0].data["geometry"]["location"]["lat"]
-    long = @results[0].data["geometry"]["location"]["lng"]
-    @country.latitude = lat
-    @country.longitude = long
-    @country.title = params[:place]
+   @country = Country.new
+   @results = Geocoder.search("#{params[:place]}")
+   lat = @results[0].data["geometry"]["location"]["lat"]
+   long = @results[0].data["geometry"]["location"]["lng"]
+   @country.latitude = lat
+   @country.longitude = long
+   @country.title = params[:place]
+
+# this is where you decide on if you have been to the place you want to pin
     if params[:checkbox]== "on"
       @country.visited = true
     else
@@ -35,6 +36,7 @@ class CountriesController < ApplicationController
       @country = Country.find(params[:id])
   end
 
+# for the image
   def home
     @pin = Country.last
     @countries = Country.all
@@ -43,7 +45,6 @@ class CountriesController < ApplicationController
     @countries = Country.all
     gon.lat = @pin.latitude
     gon.lon = @pin.longitude
-   
     gon.countries = @countries
 
   end

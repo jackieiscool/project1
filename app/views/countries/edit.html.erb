@@ -1,9 +1,12 @@
-<h1>EDIT PAGE</h1>
+<div id="jumbo" class="jumbotron">
 
-  <div class="box2">
-     <h3>Image</h3>
+  
+  <!-- <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p> -->
+</div>
+  <div id="box2" class="animated @keyframes fadeIn">
+     
     <% if @country %>
-      <%= form_for(@country , :html => { :multipart => true}) do |f| %>
+      <%= form_for(@country , :html => { :multipart => true}, :class => "btn btn-sm btn-danger") do |f| %>
         <%= f.label :image %><br> 
         <%= f.file_field :image %>
         <%= f.submit %>
@@ -11,7 +14,7 @@
      <% end %>
      <br>
 
-     <p> No photo to add?<%= link_to "Home page", root_path, :class => "btn btn-sm btn-danger"  %><p>
+     <p> No photo to add?<%= link_to "No photo to add?", root_path, :class => "btn btn-sm btn-danger"  %><p>
     </div>
 
 
