@@ -46,18 +46,19 @@
          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
         </ol>
+
         <!-- Wrapper for slides -->
       <div class="carousel-inner">
-       <div class="item active">
-        <img class="img-responsive img-full"<%= image_tag @country.image.url(:medium) %> 
-       </div>
-       <!-- image -->
-      <div class="item">
-       <img class="img-responsive img-full" <%= image_tag @country.image.url(:medium) %> >
-      </div>
-        <!-- image -->
-      <div class="item">
-       <img class="img-responsive img-full" <%= image_tag @country.image.url(:medium) %> >
+
+      <% @countries.each_with_index do |country, index| %>
+        <% if index == 0 %>
+        <div class="item active">
+        <% else %>
+        <div class="item">
+        <% end %> 
+        <img class="img-responsive img-full"<%= image_tag country.image.url(:medium) %> 
+        </div>
+       <% end %>
       </div>
      </div>
 

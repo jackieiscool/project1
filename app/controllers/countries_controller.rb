@@ -40,9 +40,10 @@ class CountriesController < ApplicationController
     @countries = Country.all
     @bucket_country = Country.where(visited:false)
     @been_country = Country.where(visited:true)
-    @country = Country.find_by(params[:id])
+    @countries = Country.all
     gon.lat = @pin.latitude
     gon.lon = @pin.longitude
+   
     gon.countries = @countries
 
   end
