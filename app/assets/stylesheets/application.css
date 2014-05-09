@@ -157,6 +157,7 @@ float:left;
   width: 960px;
   margin-left: 187px;
   margin-top: 73px;
+  box-shadow: 3px 10px 10px 10px rgba(10, 10, 10, 0.63);
 }
 
  /*making the boxes fade in*/
@@ -290,4 +291,43 @@ float:left;
   animation-direction: alternate;
 }
 
+@keyframes rollIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) rotate(-120deg);
+  }
 
+  100% {
+    opacity: 1;
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+.rollIn {
+  animation-name: rollIn;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(.3);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  70% {
+    transform: scale(.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.bounceIn {
+  animation-name: bounceIn;
+}

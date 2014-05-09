@@ -3,7 +3,7 @@
 
   <!-- div box for form -->
    <div id="box1" class="animated @keyframes fadeIn "> 
-    <h2>Please pick a Place you want to go!</h2> 
+    <h2 class="animated @keyframes bounce">Please pick a Place you want to go!</h2> 
      <form action="/countries" method="post">
      <input class = "form-control" type="text" name="place" placeholder="Enter a Location"></input><br>
      <input type="checkbox" name="checkbox" action="/countries" method="post"> Been here?</input><br><br>
@@ -14,7 +14,7 @@
 
 <!-- bucket list div -->
   <div id="box-list2" class="animated @keyframes fadeIn ">
-   <h2>Bucket list</h2>
+   <h2 class="animated @keyframes bounce"class="animated @keyframes bounce">Bucket list</h2>
     <% if @countries.blank? %>
        <p>No countries to display</p>
     <% else %>
@@ -25,7 +25,7 @@
 
  <!-- been there div --> 
   <div id="bucket-list" class="animated @keyframes fadeIn " >
-   <h2>CHECK!</h2>
+   <h2 class="animated @keyframes bounce">CHECK!</h2>
     <% @been_country.each do |bt| %>
       <p> <%= bt.title %> <%= link_to "ELIMINATE", bt, method: :delete,:class => "btn btn-sm btn-danger hover", data:{confirm: "Are you sure it's time to ELIMINATE.." }  %></p><br>
     <% end %>
