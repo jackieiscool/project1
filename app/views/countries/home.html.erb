@@ -53,11 +53,11 @@
        </div>
        <!-- image -->
       <div class="item">
-       <img class="img-responsive img-full" src="http://gamesdbase.com/Media/SYSTEM/Sega_Nomad/Title/big/Captain_Planet_and_the_Planeteers_-_1992_-_Sega.jpg" alt="">
+       <img class="img-responsive img-full" <%= image_tag @country.image.url(:medium) %> >
       </div>
         <!-- image -->
       <div class="item">
-       <img class="img-responsive img-full" src="http://fc00.deviantart.net/fs71/f/2012/022/1/7/the_avengers_by_tyrannus-d4n93q4.jpg" alt="">
+       <img class="img-responsive img-full" <%= image_tag @country.image.url(:medium) %> >
       </div>
      </div>
 
@@ -117,9 +117,9 @@
         var loc = new google.maps.LatLng(gon.countries[i].latitude, gon.countries[i] .longitude );
 
         if (gon.countries[i].visited === true) {
-          var bucket_icon = 'http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-265cb2/shapecolor-no/shadow-0/border-no/symbolstyle-color/symbolshadowstyle-white/gradient-no/expert.png'
+          var bucket_icon = 'http://google-maps-icons.googlecode.com/files/tickmark1.png'
         } else {
-          var bucket_icon = 'http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-ff8a22/shapecolor-no/shadow-0/border-no/symbolstyle-color/symbolshadowstyle-white/gradient-no/discgolf.png'
+          var bucket_icon = 'http://google-maps-icons.googlecode.com/files/tickmark2.png'
 
         }
 
