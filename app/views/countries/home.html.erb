@@ -73,6 +73,7 @@
         interval: 4000 
    }) 
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 <!-- javascript for everything -->
  <script>
   $(function(){ 
@@ -91,6 +92,8 @@
         infowindow.open(map, this);
       });
     };
+
+
     function initialize() {
      var mapOptions = {
       zoom: 2,
@@ -98,6 +101,9 @@
      };
      map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
+
+     // var autocomplete = new google.maps.place.Autocomplete(input);
+     //    autocomplete.bindTo('bounds', map);
       
       for(
         var i = 0; i < gon.countries.length; i++){
