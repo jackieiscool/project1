@@ -231,9 +231,9 @@ th {
   h3 {
     page-break-after: avoid;
   }
-  select {
-    background: #fff !important;
-  }
+  /*select {*/
+    /*background: #fff !important;
+  }*/
   .navbar {
     display: none;
   }
