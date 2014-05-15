@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20140507214837) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+# You should add a user_id to country. The countries are not linked to users at the moment.
   create_table "countries", force: true do |t|
     t.string   "title"
     t.boolean  "visited"
@@ -27,16 +28,6 @@ ActiveRecord::Schema.define(version: 20140507214837) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-  end
-
-  create_table "places", force: true do |t|
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "address"
-    t.text     "description"
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -52,14 +43,6 @@ ActiveRecord::Schema.define(version: 20140507214837) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "attach_file_name"
-    t.string   "attach_content_type"
-    t.integer  "attach_file_size"
-    t.datetime "attach_updated_at"
-    t.string   "pic_file_name"
-    t.string   "pic_content_type"
-    t.integer  "pic_file_size"
-    t.datetime "pic_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

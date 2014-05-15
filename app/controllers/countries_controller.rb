@@ -1,6 +1,7 @@
 class CountriesController < ApplicationController
   before_action :load_country, only:[:show, :edit, :destroy]
 
+  # You should remove any methods you are not using.
   def index 
   end
 
@@ -10,6 +11,9 @@ class CountriesController < ApplicationController
 
 # creates the place(country) location
   def create
+    # This controller method is pretty long. 
+    # In the future when you are refactoring you should try and abstract some of this 
+    # logic into helper methods.
    @country = Country.new
    @results = Geocoder.search("#{params[:place]}")
    lat = @results[0].data["geometry"]["location"]["lat"]
@@ -40,6 +44,8 @@ class CountriesController < ApplicationController
   def home
     @pin = Country.last
     @countries = Country.all
+    # I would name these variables @bucket_countries and @been_countries
+    # If a variable is storing multiple objects it is convention to make it plural.
     @bucket_country = Country.where(visited:false)
     @been_country = Country.where(visited:true)
     @countries = Country.all

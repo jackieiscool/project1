@@ -1,3 +1,4 @@
+# I would maybe rename this file before you send this project to employers :)
 class RemoveImageShit < ActiveRecord::Migration
   def change
   remove_column :countries, :image_file_name 

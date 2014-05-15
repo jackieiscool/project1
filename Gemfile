@@ -43,11 +43,12 @@ end
 gem 'gon'
 
 group :development, :test do
-    gem 'dotenv-rails'
-    gem 'rspec-rails'
-    gem 'factory_girl'
-    gem 'pry'
-  end
+  gem 'dotenv-rails'
+  gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'pry'
+  # spacing
+end
 
 gem 'geocoder'
 
@@ -56,8 +57,9 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
 
 group :production do
-gem 'rails_12factor'
-  end
+  # spacing
+  gem 'rails_12factor'
+end
 
 
 # Use ActiveModel has_secure_password

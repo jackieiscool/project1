@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+# delete this file
+
 describe "Places" do
   describe "GET /places" do
     it "works! (now write some real specs)" do

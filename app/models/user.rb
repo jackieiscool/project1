@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   include Paperclip::Glue
  
-
+# This should not go here.
 # migration
 class DeviseCreateUsers < ActiveRecord::Migration
   def self.up
